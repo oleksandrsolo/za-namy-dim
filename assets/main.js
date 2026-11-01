@@ -60,4 +60,19 @@
     new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; upd(); }).observe(hero);
     if (donate) new IntersectionObserver(function (e) { donateVisible = e[0].isIntersecting; upd(); }).observe(donate);
   }
+
+  // Лайтбокс для фото в блоках
+  var lb = document.getElementById('lightbox');
+  if (lb && typeof lb.showModal === 'function') {
+    var lbImg = lb.querySelector('.lightbox__img');
+    document.querySelectorAll('.story__photo').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var img = b.querySelector('img');
+        lbImg.src = b.dataset.full; lbImg.alt = img ? img.alt : '';
+        lb.showModal();
+      });
+    });
+    lb.querySelector('.lightbox__close').addEventListener('click', function () { lb.close(); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+  }
 })();

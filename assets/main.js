@@ -75,4 +75,34 @@
     lb.querySelector('.lightbox__close').addEventListener('click', function () { lb.close(); });
     lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
   }
+
+  // Карусель фото в блоках
+  document.querySelectorAll('.story__gallery').forEach(function (g, gi) {
+    var slides = g.querySelectorAll('.story__photo');
+    if (slides.length < 2) { if (slides[0]) slides[0].classList.add('is-active'); return; }
+    var dots = document.createElement('div');
+    dots.className = 'story__dots';
+    var cur = 0, timer = null;
+    function show(i) {
+      slides[cur].classList.remove('is-active'); dots.children[cur].classList.remove('is-active');
+      cur = (i + slides.length) % slides.length;
+      slides[cur].classList.add('is-active'); dots.children[cur].classList.add('is-active');
+    }
+    slides.forEach(function (s, i) {
+      var d = document.createElement('button');
+      d.type = 'button'; d.setAttribute('aria-label', 'Фото ' + (i + 1));
+      d.addEventListener('click', function () { show(i); restart(); });
+      dots.appendChild(d);
+    });
+    g.appendChild(dots);
+    slides[0].classList.add('is-active'); dots.children[0].classList.add('is-active');
+    function restart() {
+      if (reduceMotion) return;
+      clearInterval(timer);
+      timer = setInterval(function () { show(cur + 1); }, 4500);
+    }
+    if (!reduceMotion) setTimeout(restart, gi * 2000);
+    g.addEventListener('mouseenter', function () { clearInterval(timer); });
+    g.addEventListener('mouseleave', restart);
+  });
 })();

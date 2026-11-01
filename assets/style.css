@@ -80,10 +80,15 @@ a{color:inherit}
 
 /* Stories: Хартія + Нафтогаз */
 .stories{padding:24px 0 88px}
-.stories__grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.stories__grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
 .story{background:var(--navy);border:1px solid var(--line);border-radius:calc(var(--radius) + 4px);overflow:hidden}
-.story__gallery{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.story__photo{display:block;padding:0;border:0;background:#000;cursor:zoom-in;aspect-ratio:4/3;overflow:hidden}
+.story__gallery{position:relative;aspect-ratio:16/9;max-height:240px;width:100%;overflow:hidden;background:#000}
+.story__photo{position:absolute;inset:0;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:zoom-in;overflow:hidden;opacity:0;transition:opacity .9s ease}
+.story__photo.is-active{opacity:1;z-index:1}
+.story__dots{position:absolute;left:0;right:0;bottom:10px;z-index:2;display:flex;justify-content:center;gap:6px}
+.story__dots button{width:8px;height:8px;padding:0;border:0;border-radius:4px;background:rgba(255,255,255,.55);cursor:pointer;transition:width .3s ease,background .3s ease}
+.story__dots button.is-active{width:22px;background:var(--accent)}
+.story__dots button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .story__photo img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
 .story__photo:hover img{transform:scale(1.04)}
 .story__photo:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
@@ -122,11 +127,11 @@ a{color:inherit}
 .sticky-cta.is-visible{transform:none}
 
 @media (max-width:900px){
-  .stories__grid{grid-template-columns:1fr;gap:24px}
   .about__grid{grid-template-columns:1fr;gap:36px}
   .donate{position:static}
 }
 @media (max-width:640px){
+  .stories__grid{grid-template-columns:1fr;gap:24px}
   body{font-size:16px}
   .wrap{padding:0 16px}
   .topbar__inner{height:56px}

@@ -42,8 +42,8 @@ a{color:inherit}
 .hero__lead{margin:0 auto 26px;max-width:30ch;font-size:clamp(1.05rem,2.2vw,1.35rem);font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1.35}
 
 /* Video */
-.video-block{padding:8px 0 72px}
-.player{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#000 url("video/poster.jpg") center/cover no-repeat;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.video-block{padding:0 0 72px}
+.player{position:relative;aspect-ratio:16/9;max-height:100vh;width:100%;overflow:hidden;background:#000 url("video/poster.jpg") center/cover no-repeat;box-shadow:0 30px 80px rgba(0,0,0,.45)}
 .player__video{width:100%;height:100%;object-fit:cover}
 .player__play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:0;background:linear-gradient(0deg,rgba(0,0,0,.5),rgba(0,0,0,.1) 60%);color:#fff;font:inherit;cursor:pointer}
 .player__icon{display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:var(--accent);color:var(--accent-ink);box-shadow:0 0 0 10px rgba(255,210,0,.22);transition:transform .2s ease}
@@ -78,15 +78,26 @@ a{color:inherit}
 .future__text{margin:0 0 28px;max-width:16ch;font-size:clamp(1.7rem,4vw,2.8rem);line-height:1.15;font-weight:700}
 .future mark{background:none;color:var(--accent);font-weight:800}
 
-/* Reference */
-.ref{padding:56px 0}
-.ref details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0}
-.ref summary{cursor:pointer;font-weight:800;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
-.ref summary::-webkit-details-marker{display:none}
-.ref summary::after{content:"+";font-size:1.6rem;line-height:1;color:var(--accent)}
-.ref details[open] summary::after{content:"–"}
-.ref details p{color:#c9d2e3;max-width:75ch}
-.ref__link{color:var(--accent);font-weight:700;text-underline-offset:3px}
+/* Stories: Хартія + Нафтогаз */
+.stories{padding:24px 0 88px}
+.stories__grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.story{background:var(--navy);border:1px solid var(--line);border-radius:calc(var(--radius) + 4px);overflow:hidden}
+.story__gallery{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.story__photo{display:block;padding:0;border:0;background:#000;cursor:zoom-in;aspect-ratio:4/3;overflow:hidden}
+.story__photo img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.story__photo:hover img{transform:scale(1.04)}
+.story__photo:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.story__body{padding:28px 28px 30px}
+.story h2{margin:0 0 16px;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.2;font-weight:800}
+.story p{margin:0 0 14px;color:#d5dceb}
+.story p:last-child{margin-bottom:0}
+.story__link{color:var(--accent);font-weight:700;text-underline-offset:3px}
+
+/* Lightbox */
+.lightbox{padding:0;border:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh;overflow:visible}
+.lightbox::backdrop{background:rgba(5,8,15,.88)}
+.lightbox__img{max-width:min(1200px,94vw);max-height:88vh;width:auto;height:auto;border-radius:10px}
+.lightbox__close{position:absolute;top:-14px;right:-14px;width:44px;height:44px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);font-size:28px;line-height:1;cursor:pointer}
 
 /* Footer */
 .footer{background:#070b14;color:#fff8ea;padding:44px 0 120px;border-top:1px solid var(--line)}
@@ -111,6 +122,7 @@ a{color:inherit}
 .sticky-cta.is-visible{transform:none}
 
 @media (max-width:900px){
+  .stories__grid{grid-template-columns:1fr;gap:24px}
   .about__grid{grid-template-columns:1fr;gap:36px}
   .donate{position:static}
 }
@@ -125,10 +137,11 @@ a{color:inherit}
   .hero::after{background:linear-gradient(0deg,var(--bg) 8%,rgba(12,20,36,.55) 60%,rgba(12,20,36,.35))}
   .hero__content{padding-top:200px;padding-bottom:36px}
   .video-block{padding-bottom:48px}
-  .player{border-radius:10px}
   .player__icon{width:68px;height:68px}
   .player__label{font-size:.92rem}
   .about{padding-bottom:56px}
+  .story__body{padding:22px 18px 24px}
+  .lightbox__close{top:8px;right:8px}
   .donate{padding:26px 20px}
   .future{min-height:360px}
   .sticky-cta{display:flex}

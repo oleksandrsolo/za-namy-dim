@@ -105,4 +105,27 @@
     g.addEventListener('mouseenter', function () { clearInterval(timer); });
     g.addEventListener('mouseleave', restart);
   });
+
+  // Шкала збору: дані з банки monobank
+  var prog = document.getElementById('jarProgress');
+  if (prog) {
+    var fill = prog.querySelector('.progress__fill');
+    var raisedEl = prog.querySelector('.progress__raised');
+    var track = prog.querySelector('.progress__track');
+    var fmt = function (n) { return Math.floor(n).toLocaleString('uk-UA').replace(/\u00a0|\u202f/g, ' '); };
+    var render = function (amount, goal) {
+      var pct = goal > 0 ? Math.min(100, amount / goal * 100) : 0;
+      fill.style.width = (amount > 0 ? Math.max(pct, 1.5) : 0) + '%';
+      raisedEl.textContent = fmt(amount / 100) + ' грн';
+      track.setAttribute('aria-valuenow', String(Math.floor(amount / 100)));
+    };
+    var load = function () {
+      fetch('https://api.monobank.ua/bank/jar/' + prog.dataset.jar, { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (d) { render(d.amount || 0, Number(prog.dataset.goal) || d.goal || 0); })
+        .catch(function () { if (raisedEl.textContent.indexOf('—') === 0) raisedEl.textContent = 'дані оновлюються'; });
+    };
+    load();
+    setInterval(load, 120000);
+  }
 })();

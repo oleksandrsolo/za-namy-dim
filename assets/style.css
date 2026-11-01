@@ -67,6 +67,12 @@ a{color:inherit}
 .donate__goal{margin:4px 0 12px;font-size:clamp(2rem,4vw,2.6rem);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
 .donate__goal span{font-size:.55em;color:var(--muted)}
 .donate__note{margin:0 0 24px;color:#d5dceb}
+.progress{margin:4px 0 22px;padding:16px 16px 14px;border-radius:12px;background:rgba(0,0,0,.18);border:1px solid var(--line)}
+.progress__label{margin:0 0 10px;font-size:.85rem;font-weight:700;color:#fff}
+.progress__track{height:12px;border-radius:6px;background:rgba(255,255,255,.12);overflow:hidden}
+.progress__fill{height:100%;width:0;border-radius:6px;background:var(--accent);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.progress__nums{display:flex;justify-content:space-between;gap:12px;margin-top:8px;font-size:.85rem;font-variant-numeric:tabular-nums;color:var(--muted)}
+.progress__raised{color:#fff;font-weight:700}
 .donate__admin{margin:14px 0 0;text-align:center;color:var(--muted);font-size:.82rem}
 
 /* Future banner */

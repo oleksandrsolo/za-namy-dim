@@ -81,8 +81,18 @@
       </div>
 
       <aside class="donate" aria-label="Долучитись до збору">
-        <p class="donate__goal-label">Ціль збору</p>
+        <p class="donate__goal-label">Ціль</p>
         <p class="donate__goal">50 000 000 <span>грн</span></p>
+        <div class="progress" id="jarProgress" data-jar="3SZE4bZcyKGcy6PKXpy3FmmNyLwqinjV" data-goal="2000000000">
+          <p class="progress__label">Збір донатів на БПЛА</p>
+          <div class="progress__track" role="progressbar" aria-label="Збір донатів на БПЛА" aria-valuemin="0" aria-valuemax="20000000" aria-valuenow="0">
+            <div class="progress__fill"></div>
+          </div>
+          <div class="progress__nums">
+            <span class="progress__raised">— грн</span>
+            <span class="progress__goal">20 000 000 грн</span>
+          </div>
+        </div>
         <p class="donate__note">Будь-яка сума посилює наші спроможності протидіяти ворогу.</p>
         <a class="btn btn--big" href="https://send.monobank.ua/jar/7jnQhBXhYW" target="_blank" rel="noopener">Долучитись до збору</a>
         <p class="donate__admin">Банка monobank · збір адмініструє Save Ukraine</p>
@@ -92,6 +102,24 @@
 
   <section class="stories">
     <div class="wrap stories__grid">
+
+      <article class="story">
+        <div class="story__gallery">
+          <button class="story__photo" type="button" data-full="assets/img/naftogaz-1.webp" aria-label="Відкрити фото: газовик біля зруйнованого резервуара">
+            <img src="assets/img/naftogaz-1.webp" alt="Працівник Нафтогазу йде повз зруйновані резервуари" width="1200" height="828" loading="lazy">
+          </button>
+          <button class="story__photo" type="button" data-full="assets/img/naftogaz-2.webp" aria-label="Відкрити фото: газовик серед уламків обладнання">
+            <img src="assets/img/naftogaz-2.webp" alt="Працівник Нафтогазу оглядає пошкоджене після обстрілу обладнання" width="1178" height="880" loading="lazy">
+          </button>
+        </div>
+        <div class="story__body">
+          <h2>Нафтогаз і війна</h2>
+          <p>Лише по об’єктах Нафтогазу російська армія вдарила понад сім сотень разів, щоб забрати газ і тепло у більш ніж 12 мільйонів українських родин.</p>
+          <p>Давайте звернемо увагу на колосальну роботу людей, які щодня відновлюють нафтогазову систему України після російських обстрілів. Зварник із харківських газмереж, який перечікує мінометний обстріл у заглибині біля паркану, щоб не допустити вибуху. Бурильник на станції в Охтирці, який нещодавно повернувся з фронту. Працівник ТЕЦ, який мчить до Херсону на швидкості 200 кілометрів за годину, аби дорогою його не вбив дрон. Працівниця останньої заправки перед фронтом, яка змітає у сміття десятки гільз.</p>
+          <p>За, здавалося б, суто технічною, інженерною роботою стоять люди, які засадничо віддані світу, в якому мало б панувати демократичне право, а не право озброєнішого.</p>
+          <p><a class="story__link" href="https://www.naftogaz.com/news/russia-attacks-naftogaz-gas-production-facility-in-poltava-region" target="_blank" rel="noopener">Більше про роботу Нафтогазу у війні</a></p>
+        </div>
+      </article>
 
       <article class="story">
         <div class="story__gallery">
@@ -108,23 +136,6 @@
           <p>У 2023 році «Хартія» стала 13-ю бригадою оперативного призначення у складі НГУ, тримала рубежі на Куп'янсько-Лиманському напрямку, зокрема в Серебрянському лісі. З травня 2024-го бригада обороняє Харків та північ Харківщини.</p>
           <p>15 квітня 2025 року в структурі НГУ створили два корпуси, зокрема 2-й корпус «Хартія» на основі 13-ї бригади «Хартія». Його очолив Ігор Оболєнський, який у 2026 році отримав звання бригадного генерала та Героя України.</p>
           <p><a class="story__link" href="https://www.khartiia.org/" target="_blank" rel="noopener">Сайт корпусу «Хартія» — khartiia.org</a></p>
-        </div>
-      </article>
-
-      <article class="story">
-        <div class="story__gallery">
-          <button class="story__photo" type="button" data-full="assets/img/naftogaz-1.webp" aria-label="Відкрити фото: газовик біля зруйнованого резервуара">
-            <img src="assets/img/naftogaz-1.webp" alt="Працівник Нафтогазу йде повз зруйновані резервуари" width="1200" height="828" loading="lazy">
-          </button>
-          <button class="story__photo" type="button" data-full="assets/img/naftogaz-2.webp" aria-label="Відкрити фото: газовик серед уламків обладнання">
-            <img src="assets/img/naftogaz-2.webp" alt="Працівник Нафтогазу оглядає пошкоджене після обстрілу обладнання" width="1178" height="880" loading="lazy">
-          </button>
-        </div>
-        <div class="story__body">
-          <h2>Нафтогаз і війна</h2>
-          <p>Лише по об’єктах Нафтогазу російська армія вдарила понад сім сотень разів, щоб забрати газ і тепло у більш ніж 12 мільйонів українських родин.</p>
-          <p>Давайте звернемо увагу на колосальну роботу людей, які щодня відновлюють нафтогазову систему України після російських обстрілів. Зварник із харківських газмереж, який перечікує мінометний обстріл у заглибині біля паркану, щоб не допустити вибуху. Бурильник на станції в Охтирці, який нещодавно повернувся з фронту. Працівник ТЕЦ, який мчить до Херсону на швидкості 200 кілометрів за годину, аби дорогою його не вбив дрон. Працівниця останньої заправки перед фронтом, яка змітає у сміття десятки гільз.</p>
-          <p>За, здавалося б, суто технічною, інженерною роботою стоять люди, які засадничо віддані світу, в якому мало б панувати демократичне право, а не право озброєнішого.</p>
         </div>
       </article>
 

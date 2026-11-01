@@ -128,4 +128,46 @@
     load();
     setInterval(load, 120000);
   }
+
+  // Громади: горизонтальна прокрутка з автопрокруткою
+  var track = document.getElementById('hromadyTrack');
+  if (track) {
+    var step = function () {
+      var card = track.querySelector('.hromada');
+      return card ? card.getBoundingClientRect().width + 16 : 300;
+    };
+    var go = function (dir) {
+      var max = track.scrollWidth - track.clientWidth - 2;
+      if (dir > 0 && track.scrollLeft >= max) track.scrollTo({ left: 0, behavior: 'smooth' });
+      else if (dir < 0 && track.scrollLeft <= 2) track.scrollTo({ left: max, behavior: 'smooth' });
+      else track.scrollBy({ left: dir * step(), behavior: 'smooth' });
+    };
+    var prev = document.querySelector('.hromady__arrow--prev');
+    var next = document.querySelector('.hromady__arrow--next');
+    if (prev) prev.addEventListener('click', function () { go(-1); restartAuto(); });
+    if (next) next.addEventListener('click', function () { go(1); restartAuto(); });
+    var auto = null, paused = false;
+    function restartAuto() {
+      clearInterval(auto);
+      if (reduceMotion) return;
+      auto = setInterval(function () { if (!paused) go(1); }, 3500);
+    }
+    var vp = track.parentElement;
+    vp.addEventListener('mouseenter', function () { paused = true; });
+    vp.addEventListener('mouseleave', function () { paused = false; });
+    track.addEventListener('touchstart', function () { paused = true; }, { passive: true });
+    track.addEventListener('touchend', function () { setTimeout(function () { paused = false; }, 4000); }, { passive: true });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { if (e[0].isIntersecting) restartAuto(); else clearInterval(auto); }).observe(track);
+    } else restartAuto();
+  }
+
+  // Контакт для громад
+  var cd = document.getElementById('contactDialog');
+  var joinBtn = document.getElementById('hromadaJoin');
+  if (cd && joinBtn && typeof cd.showModal === 'function') {
+    joinBtn.addEventListener('click', function () { cd.showModal(); });
+    cd.querySelector('.contact-dialog__close').addEventListener('click', function () { cd.close(); });
+    cd.addEventListener('click', function (e) { if (e.target === cd) cd.close(); });
+  }
 })();

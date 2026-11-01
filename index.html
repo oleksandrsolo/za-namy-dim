@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/hero-1200.webp" imagesrcset="assets/img/hero-1200.webp 1200w, assets/img/hero-2400.webp 2400w" imagesizes="100vw">
-<link rel="stylesheet" href="assets/style.css?v=3">
+<link rel="stylesheet" href="assets/style.css?v=4">
 </head>
 <body>
 
@@ -142,6 +142,76 @@
     </div>
   </section>
 
+  <section class="hromady" aria-labelledby="hromadyTitle">
+    <div class="wrap hromady__head">
+      <div>
+        <p class="eyebrow">Разом сильніші</p>
+        <h2 id="hromadyTitle">Громади, що нас підтримали</h2>
+      </div>
+      <p class="hromady__total">Разом: <strong>1 600 000 грн</strong></p>
+    </div>
+    <div class="hromady__viewport">
+      <button class="hromady__arrow hromady__arrow--prev" type="button" aria-label="Попередня громада">‹</button>
+      <ul class="hromady__track" id="hromadyTrack">
+        <li class="hromada">
+          <img src="assets/img/hromada-yamnytsia.webp" alt="" width="900" height="600" loading="lazy">
+          <div class="hromada__info">
+            <p class="hromada__name">Ямницька сільська громада</p>
+            <p class="hromada__sum">500 000 <span>грн</span></p>
+          </div>
+        </li>
+        <li class="hromada">
+          <img src="assets/img/hromada-myronivka.webp" alt="" width="900" height="600" loading="lazy">
+          <div class="hromada__info">
+            <p class="hromada__name">Миронівська міська громада</p>
+            <p class="hromada__sum">200 000 <span>грн</span></p>
+          </div>
+        </li>
+        <li class="hromada">
+          <img src="assets/img/hromada-lityn.webp" alt="" width="900" height="600" loading="lazy">
+          <div class="hromada__info">
+            <p class="hromada__name">Літинська селищна громада</p>
+            <p class="hromada__sum">100 000 <span>грн</span></p>
+          </div>
+        </li>
+        <li class="hromada">
+          <img src="assets/img/hromada-shehyni.webp" alt="" width="900" height="600" loading="lazy">
+          <div class="hromada__info">
+            <p class="hromada__name">Шегинівська сільська громада</p>
+            <p class="hromada__sum">600 000 <span>грн</span></p>
+          </div>
+        </li>
+        <li class="hromada">
+          <img src="assets/img/hromada-holovne.webp" alt="" width="900" height="600" loading="lazy">
+          <div class="hromada__info">
+            <p class="hromada__name">Головненська селищна громада</p>
+            <p class="hromada__sum">200 000 <span>грн</span></p>
+          </div>
+        </li>
+      </ul>
+      <button class="hromady__arrow hromady__arrow--next" type="button" aria-label="Наступна громада">›</button>
+    </div>
+    <div class="wrap hromady__foot">
+      <button class="btn" type="button" id="hromadaJoin">Долучитись громаді до підтримки</button>
+      <p class="hromady__credits">Фото громад: Wikimedia Commons —
+        <a href="https://commons.wikimedia.org/wiki/File:%D0%A1%D1%82%D0%B0%D0%BD%D1%86%D1%96%D1%8F_%D0%AF%D0%BC%D0%BD%D0%B8%D1%86%D1%8F.jpg" target="_blank" rel="noopener">Leonid Andronov</a> (CC BY 3.0),
+        <a href="https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B8%D1%80%D0%BE%D0%BD%D1%96%D0%B2%D0%BA%D0%B0,_%D0%BE%D0%B7%D0%B5%D1%80%D0%BE_%D0%9D%D0%B8%D0%B6%D0%BD%D1%94.jpg" target="_blank" rel="noopener">Kiyanka</a> (CC BY-SA 4.0),
+        <a href="https://commons.wikimedia.org/wiki/File:Kostel_in_Lityn.jpg" target="_blank" rel="noopener">Visem</a> (CC BY-SA 4.0),
+        <a href="https://commons.wikimedia.org/wiki/File:Szeginie_-_panoramio.jpg" target="_blank" rel="noopener">R. Mendakiewicz</a> (CC BY-SA 3.0),
+        <a href="https://commons.wikimedia.org/wiki/File:Holovne-Liubomlskyi_Volynska-Holy_Trinity_church-east_view.jpg" target="_blank" rel="noopener">Viacheslav Galievskyi</a> (CC BY-SA 4.0)
+      </p>
+    </div>
+  </section>
+
+  <dialog class="contact-dialog" id="contactDialog" aria-labelledby="contactTitle">
+    <button class="contact-dialog__close" type="button" aria-label="Закрити">×</button>
+    <p class="eyebrow">Для громад</p>
+    <h3 id="contactTitle">Долучитись громаді до підтримки</h3>
+    <p class="contact-dialog__name">Анатолій Громадний</p>
+    <p><a href="tel:+380950000000">095 000 00 00</a></p>
+    <p><a href="mailto:info-gromady@khartia.org">info-gromady@khartia.org</a></p>
+  </dialog>
+
   <dialog class="lightbox" id="lightbox" aria-label="Перегляд фото">
     <button class="lightbox__close" type="button" aria-label="Закрити">×</button>
     <img class="lightbox__img" src="" alt="">
@@ -166,6 +236,6 @@
 
 <a class="sticky-cta btn" href="https://send.monobank.ua/jar/7jnQhBXhYW" target="_blank" rel="noopener">Долучитись до збору</a>
 
-<script src="assets/main.js?v=3" defer></script>
+<script src="assets/main.js?v=4" defer></script>
 </body>
 </html>

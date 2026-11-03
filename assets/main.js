@@ -170,4 +170,12 @@
     cd.querySelector('.contact-dialog__close').addEventListener('click', function () { cd.close(); });
     cd.addEventListener('click', function (e) { if (e.target === cd) cd.close(); });
   }
+
+  // Верхня панель з'являється, щойно почали прокручувати
+  var bar = document.querySelector('.topbar');
+  if (bar) {
+    var onScroll = function () { bar.classList.toggle('is-visible', window.scrollY > 40); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
 })();

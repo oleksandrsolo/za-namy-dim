@@ -26,9 +26,11 @@ a{color:inherit}
 .btn--big{width:100%;padding:18px 28px;font-size:1.35rem}
 
 /* Topbar */
-.topbar{position:sticky;top:0;z-index:20;background:rgba(12,20,36,.82);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:20;transform:translateY(-100%);transition:transform .35s ease,box-shadow .35s ease;background:rgba(12,20,36,.82);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
 .topbar__inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
 .topbar__brand img{height:30px;width:auto}
+
+.topbar.is-visible{transform:none;box-shadow:0 8px 30px rgba(0,0,0,.35)}
 
 /* Hero */
 .hero{position:relative;min-height:min(78vh,720px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
@@ -57,13 +59,16 @@ a{color:inherit}
 
 /* About */
 .about{padding:24px 0 88px}
-.about__grid{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start}
+.about__grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:start}
+.about h2{max-width:24ch}
+.about__text p{max-width:none}
+.about__slogan{font-family:Oswald,"Arial Narrow",Manrope,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.3rem,2.4vw,1.8rem);color:var(--accent)!important;margin:6px 0 20px!important}
 .eyebrow{margin:0 0 10px;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem}
 .about h2{margin:0 0 20px;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.15;font-weight:800;letter-spacing:-.01em}
 .about__text p{margin:0 0 16px;color:#d5dceb}
 .about__split{color:#fff!important;font-weight:700;font-size:1.15rem;padding:16px 20px;border-left:4px solid var(--accent);background:var(--navy);border-radius:var(--radius)}
 
-.donate{position:sticky;top:88px;padding:32px 28px;border-radius:calc(var(--radius) + 4px);background:linear-gradient(160deg,var(--navy-2),var(--navy));border:1px solid var(--line)}
+.donate{display:grid;grid-template-columns:1.2fr 1fr;gap:20px 48px;align-items:center;padding:32px 28px;border-radius:calc(var(--radius) + 4px);background:linear-gradient(160deg,var(--navy-2),var(--navy));border:1px solid var(--line)}
 .donate__goal-label{margin:0;color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
 .donate__goal{margin:4px 0 12px;font-size:clamp(2rem,4vw,2.6rem);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
 .donate__goal span{font-size:.55em;color:var(--muted)}
@@ -91,11 +96,8 @@ a{color:inherit}
 .gear h2{margin:0 0 28px;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.15;font-weight:800}
 .gear__grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .gear__item{background:var(--navy);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px}
-.gear__svg{display:block;width:100%;height:auto;aspect-ratio:3/2;background:#0f1a2e;border-radius:10px;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.gear__svg .g{stroke:rgba(230,209,94,.08);stroke-width:1}
-.gear__svg .d{stroke-dasharray:4 5;stroke-width:1.5;opacity:.75}
-.gear__svg .f{fill:var(--accent);stroke:none}
-.gear__svg .t{fill:var(--accent);stroke:none;font:700 13px Oswald,"Arial Narrow",sans-serif;text-anchor:middle;letter-spacing:.04em}
+.gear__pic{position:relative;aspect-ratio:3/2;border-radius:10px;overflow:hidden;background:radial-gradient(60% 55% at 50% 55%,rgba(230,209,94,.16),rgba(230,209,94,0) 70%),linear-gradient(180deg,#2b4170 0%,#172540 100%)}
+.gear__pic img{width:100%;height:100%;object-fit:contain}
 .gear__name{margin:4px 0 0;font-family:Oswald,"Arial Narrow",Manrope,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:1.15rem;line-height:1.2;color:#fff}
 .gear__desc{margin:0;color:#c9d2e3;font-size:.92rem;line-height:1.5}
 
@@ -104,6 +106,9 @@ a{color:inherit}
 .topbar__nav a{color:#c9d2e3;text-decoration:none;font-size:.92rem;font-weight:500}
 .topbar__nav a:hover{color:var(--accent)}
 @media (max-width:900px){.topbar__nav{display:none}}
+
+.donate__col--cta .btn--big{width:100%}
+@media (max-width:900px){.donate{grid-template-columns:1fr}}
 
 /* Stories: Хартія + Нафтогаз */
 .stories{padding:24px 0 88px}
@@ -215,6 +220,8 @@ a{color:inherit}
   .hromady{padding-bottom:64px}
   .lightbox__close{top:8px;right:8px}
   .donate{padding:26px 20px}
+  .btn--big{font-size:1.1rem;padding:16px 14px;white-space:nowrap}
+  .progress__nums{font-size:.8rem}
   .future{min-height:360px}
   .sticky-cta{display:flex}
 }

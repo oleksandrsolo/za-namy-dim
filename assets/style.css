@@ -74,6 +74,7 @@ a{color:inherit}
 .progress__fill{height:100%;width:0;border-radius:6px;background:var(--accent);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
 .progress__nums{display:flex;justify-content:space-between;gap:12px;margin-top:8px;font-size:.85rem;font-variant-numeric:tabular-nums;color:var(--muted)}
 .progress__raised{color:#fff;font-weight:700}
+.topbar__inner .btn--small{min-height:40px}
 .donate__admin{margin:14px 0 0;text-align:center;color:var(--muted);font-size:.82rem}
 
 /* Future banner */
@@ -84,6 +85,25 @@ a{color:inherit}
 .future__content{padding-top:64px;padding-bottom:64px}
 .future__text{margin:0 0 28px;max-width:16ch;font-size:clamp(1.7rem,4vw,2.8rem);line-height:1.15;font-weight:700}
 .future mark{background:none;color:var(--accent);font-weight:800}
+
+/* На що збираємо */
+.gear{padding:24px 0 88px}
+.gear h2{margin:0 0 28px;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.15;font-weight:800}
+.gear__grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.gear__item{background:var(--navy);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px}
+.gear__svg{display:block;width:100%;height:auto;aspect-ratio:3/2;background:#0f1a2e;border-radius:10px;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.gear__svg .g{stroke:rgba(230,209,94,.08);stroke-width:1}
+.gear__svg .d{stroke-dasharray:4 5;stroke-width:1.5;opacity:.75}
+.gear__svg .f{fill:var(--accent);stroke:none}
+.gear__svg .t{fill:var(--accent);stroke:none;font:700 13px Oswald,"Arial Narrow",sans-serif;text-anchor:middle;letter-spacing:.04em}
+.gear__name{margin:4px 0 0;font-family:Oswald,"Arial Narrow",Manrope,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:1.15rem;line-height:1.2;color:#fff}
+.gear__desc{margin:0;color:#c9d2e3;font-size:.92rem;line-height:1.5}
+
+/* Навігація в шапці */
+.topbar__nav{display:flex;gap:24px;margin-left:auto;margin-right:20px}
+.topbar__nav a{color:#c9d2e3;text-decoration:none;font-size:.92rem;font-weight:500}
+.topbar__nav a:hover{color:var(--accent)}
+@media (max-width:900px){.topbar__nav{display:none}}
 
 /* Stories: Хартія + Нафтогаз */
 .stories{padding:24px 0 88px}
@@ -186,6 +206,11 @@ a{color:inherit}
   .player__label{font-size:.92rem}
   .about{padding-bottom:56px}
   .story__body{padding:22px 18px 24px}
+  .gear{padding-bottom:56px}
+  .gear__grid{grid-template-columns:1fr 1fr;gap:12px}
+  .gear__item{padding:12px 12px 14px}
+  .gear__name{font-size:.98rem}
+  .gear__desc{font-size:.84rem}
   .hromady__arrow{display:none}
   .hromady{padding-bottom:64px}
   .lightbox__close{top:8px;right:8px}

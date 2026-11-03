@@ -188,4 +188,19 @@
     }, { threshold: 0.3 });
     fxs.forEach(function (el) { fio.observe(el); });
   } else fxs.forEach(function (el) { el.classList.add('is-live'); });
+
+  // Хаотичне тремтіння літер напису «За нами дім»
+  var zl = document.querySelectorAll('.zl img');
+  if (zl.length && !reduceMotion) {
+    var rnd = function (a) { return (Math.random() * 2 - 1) * a; };
+    zl.forEach(function (img) {
+      img.style.animation = 'none';
+      (function tick() {
+        var big = Math.random() < 0.06;
+        var k = big ? 3.2 : 1;
+        img.style.transform = 'translate(' + rnd(0.9 * k).toFixed(2) + 'px,' + rnd(1.1 * k).toFixed(2) + 'px) rotate(' + rnd(1.0 * k).toFixed(2) + 'deg)';
+        setTimeout(tick, big ? 140 + Math.random() * 120 : 70 + Math.random() * 260);
+      })();
+    });
+  }
 })();

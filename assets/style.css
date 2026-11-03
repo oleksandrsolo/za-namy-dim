@@ -98,7 +98,7 @@ a{color:inherit}
 .gear__item{background:var(--navy);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px}
 .gear__pic{position:relative;aspect-ratio:3/2;border-radius:10px;overflow:hidden;background:radial-gradient(60% 55% at 50% 55%,rgba(230,209,94,.16),rgba(230,209,94,0) 70%),linear-gradient(180deg,#2b4170 0%,#172540 100%)}
 .gear__pic img{width:100%;height:100%;object-fit:contain}
-.gear__name{margin:4px 0 0;font-family:Oswald,"Arial Narrow",Manrope,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:1.15rem;line-height:1.2;color:#fff}
+.gear__name{margin:6px 0 2px;text-align:center;font-family:Oswald,"Arial Narrow",Manrope,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:1.15rem;line-height:1.2;color:#fff}
 .gear__desc{margin:0;color:#c9d2e3;font-size:.92rem;line-height:1.5}
 
 /* Навігація в шапці */
@@ -109,6 +109,12 @@ a{color:inherit}
 
 .donate__col--cta .btn--big{width:100%}
 @media (max-width:900px){.donate{grid-template-columns:1fr}}
+
+.hero__cta{margin-top:4px}
+.final{padding:72px 0 96px;text-align:center;border-top:1px solid var(--line);background:radial-gradient(50% 80% at 50% 100%,rgba(230,209,94,.10),rgba(230,209,94,0) 70%)}
+.final__inner{display:flex;flex-direction:column;align-items:center;gap:28px}
+.final__slogan{margin:0;font-family:Oswald,"Arial Narrow",Manrope,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.8rem,4.6vw,3.6rem);line-height:1.05;color:#fff;max-width:18ch}
+.final__btn{width:auto!important;min-width:min(420px,100%)}
 
 /* Stories: Хартія + Нафтогаз */
 .stories{padding:24px 0 88px}

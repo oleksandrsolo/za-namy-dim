@@ -109,7 +109,24 @@ a{color:inherit}
 .gear h2{margin:0 0 28px;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.15;font-weight:800}
 .gear__grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .gear__item{background:none;border:0;border-radius:var(--radius);padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px}
-.gear__pic{position:relative;aspect-ratio:3/2;overflow:visible;background:radial-gradient(52% 58% at 50% 50%,rgba(190,145,80,.42) 0%,rgba(150,112,62,.18) 45%,rgba(60,48,32,0) 72%)}
+.gear__pic{position:relative;aspect-ratio:3/2;overflow:visible;isolation:isolate}
+.gear__pic::before{content:"";position:absolute;inset:18% -6% -8%;z-index:-1;filter:blur(20px);
+  background:
+    radial-gradient(40% 34% at 44% 70%,rgba(255,200,100,.85),rgba(255,200,100,0) 70%),
+    radial-gradient(30% 26% at 66% 58%,rgba(255,170,70,.7),rgba(255,170,70,0) 70%),
+    radial-gradient(34% 28% at 28% 52%,rgba(240,195,115,.55),rgba(240,195,115,0) 72%),
+    radial-gradient(60% 46% at 52% 66%,rgba(190,130,60,.5),rgba(190,130,60,0) 75%);
+  border-radius:42% 58% 63% 37% / 46% 41% 59% 54%}
+.gear__item:nth-child(2n) .gear__pic::before{border-radius:61% 39% 44% 56% / 52% 60% 40% 48%;transform:rotate(-8deg) scaleX(1.08)}
+.gear__item:nth-child(3n) .gear__pic::before{border-radius:38% 62% 55% 45% / 58% 37% 63% 42%;transform:rotate(11deg) scale(.95,1.05)}
+.gear__pic img{position:relative;transform-origin:50% 85%;transition:transform .3s ease}
+.gear__item:hover .gear__pic img,.gear__item:focus-within .gear__pic img{animation:gsway 1.6s ease-in-out infinite}
+@keyframes gsway{0%,100%{transform:rotate(0) translateY(0)}25%{transform:rotate(-3deg) translateY(-3px)}75%{transform:rotate(3deg) translateY(-3px)}}
+.gear__qty{position:absolute;top:2%;right:4%;z-index:2;font-family:Oswald,"Arial Narrow",sans-serif;font-weight:700;font-size:clamp(2rem,3.4vw,3rem);line-height:1;letter-spacing:.01em;color:#fff;transform:rotate(-4deg);text-shadow:0 4px 18px rgba(0,0,0,.55)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .gear__qty{color:transparent;background:url("img/grunge-text.png") 0 0/120px 60px repeat;-webkit-background-clip:text;background-clip:text;text-shadow:none;filter:drop-shadow(0 4px 14px rgba(0,0,0,.6))}
+}
+@media (prefers-reduced-motion:reduce){.gear__item:hover .gear__pic img{animation:none}}
 .gear__pic img{width:100%;height:100%;object-fit:contain}
 .gear__name{margin:6px 0 2px;text-align:center;font-family:Oswald,"Arial Narrow",Manrope,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:1.15rem;line-height:1.2;color:#fff}
 .gear__desc{margin:0;color:#c9d2e3;font-size:.92rem;line-height:1.5}

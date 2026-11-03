@@ -1,7 +1,7 @@
 :root{
   --bg:#0c1424;
-  --navy:#22365a;
-  --navy-2:#2b4170;
+  --navy:#2b261e;
+  --navy-2:#3a3226;
   --ink:#eef2f8;
   --muted:#a9b4c7;
   --accent:#E6D15E;
@@ -41,7 +41,15 @@ a{color:inherit}
   linear-gradient(0deg,var(--bg) 0%,rgba(12,20,36,0) 35%)}
 .hero__content{padding-top:72px;padding-bottom:64px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .hero__title{margin:0 0 18px}
-.hero__title img{width:min(560px,86vw);height:auto}
+.za{position:relative;display:block;width:min(560px,86vw);aspect-ratio:1196/300}
+.zl{position:absolute;top:-12%;height:124%;overflow:hidden}
+.zl__in{position:absolute;inset:9.7% 0;animation:zdrop .7s cubic-bezier(.2,.9,.25,1.15) both;animation-delay:calc(.25s + var(--i) * .07s)}
+.zl img{position:absolute;top:0;height:100%;max-width:none;animation:zjit .9s steps(1) infinite;animation-delay:calc(var(--i) * -.13s)}
+.zl:nth-child(2n) img{animation-duration:1.1s}
+.zl:nth-child(3n) img{animation-duration:.8s}
+@keyframes zdrop{from{transform:translateY(-110%)}to{transform:none}}
+@keyframes zjit{0%{transform:translate(0,0) rotate(0)}20%{transform:translate(.6px,-1px) rotate(-.8deg)}40%{transform:translate(-.8px,.6px) rotate(.6deg)}60%{transform:translate(.4px,.9px) rotate(-.4deg)}80%{transform:translate(-.5px,-.6px) rotate(.9deg)}}
+@media (prefers-reduced-motion:reduce){.zl__in,.zl img{animation:none}}
 .hero__lead{margin:0 auto 26px;max-width:30ch;font-size:clamp(1.05rem,2.2vw,1.35rem);font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1.35}
 
 /* Video */
@@ -60,13 +68,17 @@ a{color:inherit}
 /* About */
 .about{padding:24px 0 88px}
 .about__grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:start}
-.about h2{max-width:24ch}
+.about__text{text-align:center;max-width:900px;margin:0 auto}
+.about h2{max-width:24ch;margin-left:auto!important;margin-right:auto!important}
 .about__text p{max-width:none}
 .about__slogan{font-family:Oswald,"Arial Narrow",Manrope,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.3rem,2.4vw,1.8rem);color:var(--accent)!important;margin:6px 0 20px!important}
 .eyebrow{margin:0 0 10px;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem}
 .about h2{margin:0 0 20px;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.15;font-weight:800;letter-spacing:-.01em}
 .about__text p{margin:0 0 16px;color:#d5dceb}
-.about__split{color:#fff!important;font-weight:700;font-size:1.15rem;padding:16px 20px;border-left:4px solid var(--accent);background:var(--navy);border-radius:var(--radius)}
+.about__split{color:#fff!important;font-weight:700;font-size:1.2rem;display:flex;align-items:center;gap:20px;margin:28px 0 0!important}
+.about__split::before,.about__split::after{content:"";flex:1;height:1px;min-width:24px;height:2px;background:linear-gradient(90deg,rgba(230,209,94,0),rgba(230,209,94,.9) 70%)}
+.about__split::after{background:linear-gradient(90deg,rgba(230,209,94,.9) 30%,rgba(230,209,94,0))}
+.about__split span{flex:0 1 auto;max-width:48ch}
 
 .donate{display:grid;grid-template-columns:1.2fr 1fr;gap:20px 48px;align-items:center;padding:32px 28px;border-radius:calc(var(--radius) + 4px);background:linear-gradient(160deg,var(--navy-2),var(--navy));border:1px solid var(--line)}
 .donate__goal-label{margin:0;color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
@@ -93,10 +105,11 @@ a{color:inherit}
 
 /* На що збираємо */
 .gear{padding:24px 0 88px}
+.gear .eyebrow,.gear h2{text-align:center}
 .gear h2{margin:0 0 28px;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.15;font-weight:800}
 .gear__grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .gear__item{background:var(--navy);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px}
-.gear__pic{position:relative;aspect-ratio:3/2;border-radius:10px;overflow:hidden;background:radial-gradient(60% 55% at 50% 55%,rgba(230,209,94,.16),rgba(230,209,94,0) 70%),linear-gradient(180deg,#2b4170 0%,#172540 100%)}
+.gear__pic{position:relative;aspect-ratio:3/2;border-radius:10px;overflow:hidden;background:radial-gradient(60% 55% at 50% 55%,rgba(230,209,94,.16),rgba(230,209,94,0) 70%),linear-gradient(180deg,#3d3428 0%,#211c16 100%)}
 .gear__pic img{width:100%;height:100%;object-fit:contain}
 .gear__name{margin:6px 0 2px;text-align:center;font-family:Oswald,"Arial Narrow",Manrope,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:1.15rem;line-height:1.2;color:#fff}
 .gear__desc{margin:0;color:#c9d2e3;font-size:.92rem;line-height:1.5}
@@ -138,7 +151,7 @@ a{color:inherit}
 
 /* Громади */
 .hromady{padding:16px 0 88px}
-.hromady__head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 32px;flex-wrap:wrap;margin-bottom:24px}
+.hromady__head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;margin-bottom:28px}
 .hromady__head h2{margin:0;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.15;font-weight:800}
 .hromady__total{margin:0;color:var(--muted)}
 .hromady__total strong{color:var(--accent);font-size:1.25rem}
@@ -227,6 +240,8 @@ a{color:inherit}
   .lightbox__close{top:8px;right:8px}
   .donate{padding:26px 20px}
   .btn--big{font-size:1.1rem;padding:16px 14px;white-space:nowrap}
+  .about__split{flex-direction:column;gap:14px}
+  .about__split::before,.about__split::after{flex:none;width:70%;background:linear-gradient(90deg,rgba(230,209,94,0),rgba(230,209,94,.9),rgba(230,209,94,0))}
   .progress__nums{font-size:.8rem}
   .future{min-height:360px}
   .sticky-cta{display:flex}

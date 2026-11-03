@@ -1,8 +1,6 @@
 :root{
   --display:Oswald,"Arial Narrow",sans-serif;
   --body:Manrope,system-ui,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,monospace;
-  --serif:"Playfair Display",Georgia,serif;
   --bg:#0c1424;
   --navy:#2b261e;
   --navy-2:#3a3226;
@@ -46,15 +44,14 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 .hero__proof b{color:var(--accent)}
 
 /* Типографіка: Oswald (display) + Playfair Display курсив для акцентних слів + Manrope (текст) + JetBrains Mono (підписи, цифри) */
-.about h2,.gear h2,.report h2,.hromady__head h2,.story h2{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:-.005em;line-height:.98}
-.gear h2,.report h2,.hromady__head h2{font-size:clamp(2.4rem,5.6vw,4.6rem)!important}
-.about h2{font-size:clamp(2rem,4.6vw,3.8rem)!important;max-width:20ch}
+.about h2,.gear h2,.report h2,.hromady__head h2,.story h2{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.01em;line-height:1.05}
+.gear h2,.report h2,.hromady__head h2{font-size:clamp(2rem,4.2vw,3.2rem)!important}
+.about h2{font-size:clamp(1.8rem,3.8vw,2.9rem)!important;max-width:24ch}
 .story h2{font-size:clamp(1.9rem,3.4vw,2.8rem)!important}
-h2 em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;color:var(--accent);letter-spacing:0}
-.eyebrow{font-family:var(--mono)!important;font-weight:500!important;letter-spacing:.16em!important;font-size:.76rem!important}
-.progress__nums,.report__date,.donate__admin{font-family:var(--mono)}
+.eyebrow{font-family:var(--body)!important;font-weight:700!important;letter-spacing:.14em!important;font-size:.78rem!important}
+.progress__nums,.report__date{font-variant-numeric:tabular-nums}
 .donate__goal,.hromada__sum,.hromady__total strong{font-family:var(--display);font-weight:700;letter-spacing:.01em}
-.hero__lead{font-family:var(--display);font-weight:500;letter-spacing:.04em}
+.hero__lead{font-family:var(--display);font-weight:500;letter-spacing:.05em}
 
 /* Hero */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
@@ -213,11 +210,11 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:
 .stories{padding:40px 0 110px;overflow-x:clip}
 .stories__grid{display:flex;flex-direction:column;gap:clamp(64px,9vw,120px)}
 /* Зламана сітка: фото вилітає за край екрана, текст-«вкладка» накладається на нього */
-.story{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;max-width:calc(var(--wrap) + (100vw - var(--wrap)) / 2);margin-right:auto}
+.story{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start;max-width:calc(var(--wrap) + (100vw - var(--wrap)) / 2);margin-right:auto}
 .story--right{margin-left:auto;margin-right:0}
-.story--right .story__gallery{order:2;border-radius:28px 0 0 28px}
-.story--right .story__body{order:1;margin:0 -64px 0 max(20px,calc((100vw - var(--wrap)) / 2 + 20px));transform:rotate(1.2deg)}
-.story__gallery{position:relative;aspect-ratio:16/10;width:100%;overflow:hidden;background:#000;border-radius:0 28px 28px 0}
+.story--right .story__gallery{order:2;border-radius:0}
+.story--right .story__body{order:1;margin:0 -64px 0 max(20px,calc((100vw - var(--wrap)) / 2 + 20px))}
+.story__gallery{position:relative;aspect-ratio:5/4;margin-top:56px;width:100%;overflow:hidden;background:#000;border-radius:0}
 .story__photo{position:absolute;inset:0;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:zoom-in;overflow:hidden;opacity:0;transition:opacity .9s ease}
 .story__photo.is-active{opacity:1;z-index:1}
 .story__dots{position:absolute;left:0;right:0;bottom:12px;z-index:2;display:flex;justify-content:center;gap:6px}
@@ -227,10 +224,15 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:
 .story__photo img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
 .story__photo:hover img{transform:scale(1.03)}
 .story__photo:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
-.story__body{position:relative;z-index:3;margin:0 max(20px,calc((100vw - var(--wrap)) / 2 + 20px)) 0 -64px;padding:40px 40px 36px;border-radius:26px;background:radial-gradient(120% 90% at 30% 0%,rgba(78,62,40,.97),rgba(34,29,22,.97));transform:rotate(-1.2deg)}
-.story__tag{position:absolute;top:-16px;left:28px;padding:6px 14px 5px;background:var(--accent);color:#0c1424;font-family:Oswald,"Arial Narrow",sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-3deg)}
-.story__tag::before{content:"";position:absolute;top:-9px;left:50%;width:46px;height:16px;margin-left:-23px;background:rgba(240,232,210,.55);transform:rotate(4deg)}
-.story h2{margin:6px 0 16px;font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.15;font-weight:800}
+.story__body{position:relative;z-index:3;margin:0 max(20px,calc((100vw - var(--wrap)) / 2 + 20px)) 0 -64px;padding:34px 40px 36px;background:#14110d;border-top:4px solid var(--accent)}
+.news__kicker{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px!important;font-size:.78rem!important;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#a89f8d!important}
+.news__kicker span{background:var(--accent);color:#14110d;padding:3px 8px 2px}
+.story h2.news__title{margin:0 0 20px;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(2rem,3.6vw,3rem)!important;line-height:1.02;color:#fff}
+.news__stats{list-style:none;margin:0 0 22px;padding:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;border-top:1px solid rgba(255,248,234,.18);border-bottom:1px solid rgba(255,248,234,.18)}
+.news__stats b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,4vw,3.2rem);line-height:1;color:var(--accent)}
+.news__stats span{display:block;margin-top:6px;font-size:.85rem;line-height:1.35;color:#c9c2b3}
+.story p.news__lead{font-size:1.12rem;font-weight:600;line-height:1.55;color:#fff}
+.news__quote{margin:22px 0;padding:4px 0 4px 20px;border-left:4px solid var(--accent);font-family:var(--display);font-weight:500;font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.3;text-transform:uppercase;letter-spacing:.01em;color:#fff}
 .story p{margin:0 0 14px;color:#e2ddd2;max-width:65ch}
 .story p:last-child{margin-bottom:0}
 .story__link{color:var(--accent);font-weight:700;text-underline-offset:3px}
@@ -298,9 +300,9 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:
 
 @media (max-width:900px){
   .story,.story--right{grid-template-columns:1fr;max-width:none;margin:0}
-  .story .story__gallery,.story--right .story__gallery{order:0;border-radius:0}
-  .story .story__body,.story--right .story__body{order:1;margin:-48px 16px 0;padding:34px 22px 26px;transform:rotate(-.8deg)}
-  .story--right .story__body{transform:rotate(.8deg)}
+  .story .story__gallery,.story--right .story__gallery{order:0;border-radius:0;margin-top:0;aspect-ratio:4/3}
+  .story .story__body,.story--right .story__body{order:1;margin:-40px 16px 0;padding:28px 20px 26px}
+  .news__stats{gap:14px}
   .about__grid{grid-template-columns:1fr;gap:36px}
   .donate{position:static}
 }

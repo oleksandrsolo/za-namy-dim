@@ -32,6 +32,11 @@ a{color:inherit}
 
 .topbar.is-visible{transform:none;box-shadow:0 8px 30px rgba(0,0,0,.35)}
 
+h1,h2,h3{text-wrap:balance}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.hero__proof{margin:14px 0 0;font-size:.95rem;color:#e7e2d6;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.hero__proof b{color:var(--accent)}
+
 /* Hero */
 .hero{position:relative;min-height:min(78vh,720px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
 .hero__bg{position:absolute;inset:0;z-index:-1}
@@ -70,7 +75,7 @@ a{color:inherit}
 .about__grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:start}
 .about__text{text-align:center;max-width:900px;margin:0 auto}
 .about h2{max-width:24ch;margin-left:auto!important;margin-right:auto!important}
-.about__text p{max-width:none}
+.about__text p{max-width:65ch;margin-left:auto;margin-right:auto}
 .about__slogan{font-family:Oswald,"Arial Narrow",Manrope,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.3rem,2.4vw,1.8rem);color:var(--accent)!important;margin:6px 0 20px!important}
 .eyebrow{margin:0 0 10px;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem}
 .about h2{margin:0 0 20px;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.15;font-weight:800;letter-spacing:-.01em}
@@ -147,23 +152,28 @@ a{color:inherit}
 .final__btn{width:auto!important;min-width:min(420px,100%)}
 
 /* Stories: Хартія + Нафтогаз */
-.stories{padding:24px 0 88px}
-.stories__grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
-.story{background:radial-gradient(90% 60% at 50% 30%,rgba(150,112,62,.22),rgba(60,48,32,0) 75%);border:0;border-radius:24px;overflow:visible}
-.story__gallery{border-radius:18px;box-shadow:0 30px 60px -25px rgba(0,0,0,.75),0 0 60px rgba(150,112,62,.18)}
-.story__gallery{position:relative;aspect-ratio:16/9;max-height:240px;width:100%;overflow:hidden;background:#000}
+.stories{padding:40px 0 110px;overflow-x:clip}
+.stories__grid{display:flex;flex-direction:column;gap:clamp(64px,9vw,120px)}
+/* Зламана сітка: фото вилітає за край екрана, текст-«вкладка» накладається на нього */
+.story{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;max-width:calc(var(--wrap) + (100vw - var(--wrap)) / 2);margin-right:auto}
+.story--right{margin-left:auto;margin-right:0}
+.story--right .story__gallery{order:2;border-radius:28px 0 0 28px}
+.story--right .story__body{order:1;margin:0 -64px 0 max(20px,calc((100vw - var(--wrap)) / 2 + 20px));transform:rotate(1.2deg)}
+.story__gallery{position:relative;aspect-ratio:16/10;width:100%;overflow:hidden;background:#000;border-radius:0 28px 28px 0;box-shadow:0 40px 70px -30px rgba(0,0,0,.85),0 0 90px rgba(170,125,60,.22)}
 .story__photo{position:absolute;inset:0;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:zoom-in;overflow:hidden;opacity:0;transition:opacity .9s ease}
 .story__photo.is-active{opacity:1;z-index:1}
-.story__dots{position:absolute;left:0;right:0;bottom:10px;z-index:2;display:flex;justify-content:center;gap:6px}
+.story__dots{position:absolute;left:0;right:0;bottom:12px;z-index:2;display:flex;justify-content:center;gap:6px}
 .story__dots button{width:8px;height:8px;padding:0;border:0;border-radius:4px;background:rgba(255,255,255,.55);cursor:pointer;transition:width .3s ease,background .3s ease}
 .story__dots button.is-active{width:22px;background:var(--accent)}
 .story__dots button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .story__photo img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
-.story__photo:hover img{transform:scale(1.04)}
+.story__photo:hover img{transform:scale(1.03)}
 .story__photo:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
-.story__body{padding:28px 28px 30px}
-.story h2{margin:0 0 16px;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.2;font-weight:800}
-.story p{margin:0 0 14px;color:#d5dceb}
+.story__body{position:relative;z-index:3;margin:0 max(20px,calc((100vw - var(--wrap)) / 2 + 20px)) 0 -64px;padding:40px 40px 36px;border-radius:26px;background:radial-gradient(120% 90% at 30% 0%,rgba(78,62,40,.97),rgba(34,29,22,.97));box-shadow:0 30px 60px -20px rgba(0,0,0,.7),0 0 70px rgba(170,125,60,.25);transform:rotate(-1.2deg)}
+.story__tag{position:absolute;top:-16px;left:28px;padding:6px 14px 5px;background:var(--accent);color:#0c1424;font-family:Oswald,"Arial Narrow",sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-3deg);box-shadow:0 6px 14px rgba(0,0,0,.4)}
+.story__tag::before{content:"";position:absolute;top:-9px;left:50%;width:46px;height:16px;margin-left:-23px;background:rgba(240,232,210,.55);transform:rotate(4deg)}
+.story h2{margin:6px 0 16px;font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.15;font-weight:800}
+.story p{margin:0 0 14px;color:#e2ddd2;max-width:65ch}
 .story p:last-child{margin-bottom:0}
 .story__link{color:var(--accent);font-weight:700;text-underline-offset:3px}
 
@@ -229,11 +239,14 @@ a{color:inherit}
 .sticky-cta.is-visible{transform:none}
 
 @media (max-width:900px){
+  .story,.story--right{grid-template-columns:1fr;max-width:none;margin:0}
+  .story .story__gallery,.story--right .story__gallery{order:0;border-radius:0}
+  .story .story__body,.story--right .story__body{order:1;margin:-48px 16px 0;padding:34px 22px 26px;transform:rotate(-.8deg)}
+  .story--right .story__body{transform:rotate(.8deg)}
   .about__grid{grid-template-columns:1fr;gap:36px}
   .donate{position:static}
 }
 @media (max-width:640px){
-  .stories__grid{grid-template-columns:1fr;gap:24px}
   body{font-size:16px}
   .wrap{padding:0 16px}
   .topbar__inner{height:56px}
@@ -247,7 +260,6 @@ a{color:inherit}
   .player__icon{width:68px;height:68px}
   .player__label{font-size:.92rem}
   .about{padding-bottom:56px}
-  .story__body{padding:22px 18px 24px}
   .gear{padding-bottom:56px}
   .gear__grid{grid-template-columns:1fr 1fr;gap:12px}
   .gear__item{padding:12px 12px 14px}

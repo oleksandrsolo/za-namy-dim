@@ -117,6 +117,7 @@
       var pct = goal > 0 ? Math.min(100, amount / goal * 100) : 0;
       fill.style.width = (amount > 0 ? Math.max(pct, 1.5) : 0) + '%';
       raisedEl.textContent = fmt(amount / 100) + ' грн';
+      document.querySelectorAll('[data-jar-raised]').forEach(function (e) { e.textContent = fmt(amount / 100) + ' грн'; });
       track.setAttribute('aria-valuenow', String(Math.floor(amount / 100)));
     };
     var load = function () {

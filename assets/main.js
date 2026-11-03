@@ -179,4 +179,13 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
+  // Засоби оживають, коли картка на екрані
+  var fxs = document.querySelectorAll('.gear__pic[class*="fx--"]');
+  if ('IntersectionObserver' in window) {
+    var fio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle('is-live', e.isIntersecting); });
+    }, { threshold: 0.3 });
+    fxs.forEach(function (el) { fio.observe(el); });
+  } else fxs.forEach(function (el) { el.classList.add('is-live'); });
 })();

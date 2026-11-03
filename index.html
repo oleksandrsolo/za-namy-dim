@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/hero-1200.webp" imagesrcset="assets/img/hero-1200.webp 1200w, assets/img/hero-2400.webp 2400w" imagesizes="100vw">
-<link rel="stylesheet" href="assets/style.css?v=13">
+<link rel="stylesheet" href="assets/style.css?v=14">
 </head>
 <body>
 
@@ -33,6 +33,7 @@
     <nav class="topbar__nav" aria-label="Розділи">
       <a href="#what">на що збираємо</a>
       <a href="#about">про проєкт</a>
+      <a href="#report">звітність</a>
       <a href="#hromady">громади</a>
     </nav>
     <a class="btn btn--small" href="https://send.monobank.ua/jar/7jnQhBXhYW" target="_blank" rel="noopener">Підтримати</a>
@@ -117,38 +118,53 @@
       <h2 id="gearTitle">На що збираємо?</h2>
       <ul class="gear__grid">
         <li class="gear__item">
-          <div class="gear__pic"><span class="gear__qty" aria-label="13 од.">×13</span><img src="assets/img/gear-matrice-4t.webp" alt="Матрікс 4Т — ілюстрація" width="900" height="600" loading="lazy"></div>
+          <div class="gear__pic fx--fly"><span class="gear__qty" aria-label="13 од.">×13</span><img src="assets/img/gear-matrice-4t.webp" alt="Матрікс 4Т — ілюстрація" width="900" height="600" loading="lazy"><span class="fx-shadow" style="--sx:44%;--sy:76%"></span></div>
           <h3 class="gear__name">Матрікс 4Т</h3>
         </li>
         <li class="gear__item">
-          <div class="gear__pic"><span class="gear__qty" aria-label="61 од.">×61</span><img src="assets/img/gear-darts-day.webp" alt="DARTS 12S×2 DualMot Norda — ілюстрація" width="900" height="600" loading="lazy"></div>
+          <div class="gear__pic fx--fly"><span class="gear__qty" aria-label="61 од.">×61</span><img src="assets/img/gear-darts-day.webp" alt="DARTS 12S×2 DualMot Norda — ілюстрація" width="900" height="600" loading="lazy"><span class="fx-shadow" style="--sx:45%;--sy:80%"></span></div>
           <h3 class="gear__name">DARTS 12S×2 DualMot Norda</h3>
         </li>
         <li class="gear__item">
-          <div class="gear__pic"><span class="gear__qty" aria-label="10 од.">×10</span><img src="assets/img/gear-ecoflow-delta-3-max.webp" alt="EcoFlow Delta 3 / Delta 3 MAX — ілюстрація" width="900" height="600" loading="lazy"></div>
+          <div class="gear__pic fx--energy"><span class="gear__qty" aria-label="10 од.">×10</span><img src="assets/img/gear-ecoflow-delta-3-max.webp" alt="EcoFlow Delta 3 / Delta 3 MAX — ілюстрація" width="900" height="600" loading="lazy"><span class="fx fx-energy" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
           <h3 class="gear__name">EcoFlow Delta 3 / Delta 3 MAX</h3>
         </li>
         <li class="gear__item">
-          <div class="gear__pic"><span class="gear__qty" aria-label="1 од.">×1</span><img src="assets/img/gear-generator-3kw.webp" alt="Інверторний генератор 3 кВт — ілюстрація" width="900" height="600" loading="lazy"></div>
+          <div class="gear__pic fx--energy"><span class="gear__qty" aria-label="1 од.">×1</span><img src="assets/img/gear-generator-3kw.webp" alt="Інверторний генератор 3 кВт — ілюстрація" width="900" height="600" loading="lazy"><span class="fx fx-energy" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
           <h3 class="gear__name">Інверторний генератор 3 кВт</h3>
         </li>
         <li class="gear__item">
-          <div class="gear__pic"><span class="gear__qty" aria-label="5 од.">×5</span><img src="assets/img/gear-laptop-lenovo-loq.webp" alt="Ноутбук Lenovo LOQ — ілюстрація" width="900" height="600" loading="lazy"></div>
+          <div class="gear__pic fx--screen"><span class="gear__qty" aria-label="5 од.">×5</span><img src="assets/img/gear-laptop-lenovo-loq.webp" alt="Ноутбук Lenovo LOQ — ілюстрація" width="900" height="600" loading="lazy"><span class="fx-screen" style="clip-path:polygon(26.6% 35.6%,53.1% 15.8%,56.9% 46.5%,30.6% 66.4%)" aria-hidden="true"><span class="fx-screen__frames"></span></span></div>
           <h3 class="gear__name">Ноутбук Lenovo LOQ</h3>
         </li>
         <li class="gear__item">
-          <div class="gear__pic"><span class="gear__qty" aria-label="6 од.">×6</span><img src="assets/img/gear-starlink-mini.webp" alt="Starlink Mini — ілюстрація" width="900" height="600" loading="lazy"></div>
+          <div class="gear__pic fx--wave"><span class="gear__qty" aria-label="6 од.">×6</span><img src="assets/img/gear-starlink-mini.webp" alt="Starlink Mini — ілюстрація" width="900" height="600" loading="lazy"><span class="fx fx-wave" style="--x:50.6%;--y:44.7%" aria-hidden="true"><i></i><i></i><i></i></span></div>
           <h3 class="gear__name">Starlink Mini</h3>
         </li>
         <li class="gear__item">
-          <div class="gear__pic"><img src="assets/img/gear-adaptis-minikit.webp" alt="Набір Adaptis MiniKit + адаптер 12–24 В — ілюстрація" width="900" height="600" loading="lazy"></div>
+          <div class="gear__pic fx--wave"><img src="assets/img/gear-adaptis-minikit.webp" alt="Набір Adaptis MiniKit + адаптер 12–24 В — ілюстрація" width="900" height="600" loading="lazy"><span class="fx fx-wave" style="--x:42.8%;--y:44.7%" aria-hidden="true"><i></i><i></i><i></i></span></div>
           <h3 class="gear__name">Набір Adaptis MiniKit + адаптер 12–24 В</h3>
         </li>
         <li class="gear__item">
-          <div class="gear__pic"><span class="gear__qty" aria-label="2 од.">×2</span><img src="assets/img/gear-mast-22m.webp" alt="Щогла 22 м Socar Engineering — ілюстрація" width="900" height="600" loading="lazy"></div>
+          <div class="gear__pic fx--wave"><span class="gear__qty" aria-label="2 од.">×2</span><img src="assets/img/gear-mast-22m.webp" alt="Щогла 22 м Socar Engineering — ілюстрація" width="900" height="600" loading="lazy"><span class="fx fx-wave" style="--x:49.6%;--y:12%" aria-hidden="true"><i></i><i></i><i></i></span></div>
           <h3 class="gear__name">Щогла 22 м Socar Engineering</h3>
         </li>
       </ul>
+    </div>
+  </section>
+
+
+  <!-- ЗВІТНІСТЬ (ДЕМО) -->
+  <section class="report" id="report" aria-labelledby="reportTitle">
+    <div class="wrap">
+      <p class="eyebrow">Звітність</p>
+      <h2 id="reportTitle">Куди йдуть гроші</h2>
+      <p class="report__note"><b>Демоверсія.</b> Звітів ще немає: перші з’являться тут після передачі засобів корпусу. Нижче — як це виглядатиме.</p>
+      <ol class="report__list">
+        <li class="report__row"><span class="report__date">дд.мм.рррр</span><span class="report__what">Starlink Mini <b>×2</b></span><span class="report__to">передано підрозділу 2-го корпусу НГУ «Хартія»</span><span class="report__tag">приклад</span></li>
+        <li class="report__row"><span class="report__date">дд.мм.рррр</span><span class="report__what">EcoFlow Delta 3 <b>×4</b></span><span class="report__to">акт приймання-передачі та фото</span><span class="report__tag">приклад</span></li>
+        <li class="report__row"><span class="report__date">дд.мм.рррр</span><span class="report__what">DARTS <b>×10</b></span><span class="report__to">відео застосування після погодження з корпусом</span><span class="report__tag">приклад</span></li>
+      </ol>
     </div>
   </section>
 
@@ -297,6 +313,6 @@
 
 <a class="sticky-cta btn" href="https://send.monobank.ua/jar/7jnQhBXhYW" target="_blank" rel="noopener">Долучитись до збору</a>
 
-<script src="assets/main.js?v=13" defer></script>
+<script src="assets/main.js?v=14" defer></script>
 </body>
 </html>
